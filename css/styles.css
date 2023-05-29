@@ -23,6 +23,7 @@
   --main-white: #ffffff;
   --second-white: #f5f4fa;
   --main-grey: #757575;
+  --second-grey: #afb1b8;
   --line-color: #ececec;
   --line-color-2: #eeeeee;
 }
@@ -60,6 +61,8 @@ body {
   margin: 0;
 }
 
+/* ======= HEADER ======= */
+
 .web-name {
   font-family: "Raleway";
   font-weight: 700;
@@ -73,10 +76,6 @@ body {
   color: var(--main-black);
 }
 
-.highlight2 {
-  color: var(--main-white);
-}
-
 .webstudio {
   margin-right: 93px;
   margin-top: 24px;
@@ -87,21 +86,11 @@ body {
   text-decoration: none;
 }
 
-.webstudio-link-2 {
-  text-decoration: none;
-  padding-bottom: 20px;
-}
-
 a.webstudio-link {
   text-decoration: none;
   display: inline-block;
   padding-top: 24px;
   padding-bottom: 25px;
-}
-
-a.webstudio-link-2 {
-  text-decoration: none;
-  display: inline-block;
 }
 
 .top-line-partition {
@@ -130,13 +119,15 @@ a.webstudio-link-2 {
   padding: 0;
 }
 
-.bar {
-  width: 58px;
-  height: 4px;
-  background: #2196f3;
-  border-radius: 2px;
+.top-line-menu-list-link.isactive::after {
+  content: "";
+  display: block;
   position: relative;
   top: 29px;
+  width: 58px;
+  height: 4px;
+  background: var(--main-blue);
+  border-radius: 2px;
 }
 
 .top-line-right-side {
@@ -242,6 +233,10 @@ a.webstudio-link-2 {
   background-color: var(--main-blue);
 }
 
+/* ======= END HEADER ======= */
+
+/* ======= MAIN ======= */
+
 .advantages {
   display: flex;
   flex-direction: row;
@@ -253,7 +248,7 @@ a.webstudio-link-2 {
 .advantages-rectangle {
   width: 270px;
   height: 120px;
-  background: #f5f4fa;
+  background: var(--second-white);
   border-radius: 4px;
   margin-bottom: 30px;
   display: flex;
@@ -297,7 +292,7 @@ a.webstudio-link-2 {
   width: 370px;
   height: 70px;
   background: rgba(47, 48, 58, 0.8);
-
+  z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -312,7 +307,7 @@ a.webstudio-link-2 {
   text-align: center;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  color: #ffffff;
+  color: var(--main-white);
 }
 
 .header-primary {
@@ -382,12 +377,12 @@ a.webstudio-link-2 {
 }
 
 .team-icon {
-  fill: #afb1b8;
+  fill: var(--second-grey);
 }
 
 .team-icon:hover,
 .team-icon:focus {
-  fill: #fff;
+  fill: var(--main-white);
 }
 .team-social-icons-likns {
   width: 44px;
@@ -400,12 +395,12 @@ a.webstudio-link-2 {
 
 .team-social-icons-likns:hover,
 .team-social-icons-likns:focus {
-  background-color: #2196f3;
+  background-color: var(--main-blue);
 }
 
 .team-social-icons-likns:hover > .team-icon,
 .team-social-icons-likns:focus > .team-icon {
-  fill: #fff;
+  fill: var(--main-white);
 }
 
 .team-card {
@@ -430,7 +425,7 @@ a.webstudio-link-2 {
 .clients-rectangle {
   width: 170px;
   height: 92px;
-  border: 1px solid #afb1b8;
+  border: 1px solid var(--second-grey);
   border-radius: 4px;
   display: flex;
   justify-content: center;
@@ -439,21 +434,21 @@ a.webstudio-link-2 {
 
 .clients-rectangle:hover,
 .clients-rectangle:focus {
-  border: 1px solid #2196f3;
+  border: 1px solid var(--main-blue);
 }
 
 .clients-rectangle:hover > .clients-icon,
 .clients-rectangle:focus > .clients-icon {
-  fill: #2196f3;
+  fill: var(--main-blue);
 }
 
 .clients-icon {
-  fill: #afb1b8;
+  fill: var(--second-grey);
 }
 
 .clients-icon:hover,
 .clients-icon:focus {
-  fill: #2196f3;
+  fill: var(--main-blue);
 }
 
 .filters {
@@ -501,7 +496,7 @@ a.webstudio-link-2 {
 
 .projects-card:hover,
 .projects-card:focus {
-  background: #ffffff;
+  background: var(--main-white);
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
@@ -517,6 +512,40 @@ a.webstudio-link-2 {
 .projects-card-img {
   display: block;
 }
+
+.projects-card-box {
+  position: relative;
+  overflow: hidden;
+}
+
+.projects-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(33, 150, 243, 0.9);
+  transform: translatey(100%);
+  transition: transform 250ms ease-in-out;
+}
+
+.projects-card-box:hover .projects-card-overlay {
+  transform: translatex(0);
+}
+
+.projects-card-overlay p {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+  color: var(--main-white);
+
+  padding: 49px 45px 49px 24px;
+  text-align: left;
+}
+
 .projects-list-info {
   text-align: left;
   padding: 20px 24px 20px 24px;
@@ -541,6 +570,23 @@ a.webstudio-link-2 {
   line-height: 1.88;
   letter-spacing: 0.03em;
   color: var(--mine-grey);
+}
+/* ======= END MAIN ======= */
+
+/* ======= FOOTER ======= */
+
+.highlight2 {
+  color: var(--main-white);
+}
+
+.webstudio-link-2 {
+  text-decoration: none;
+  padding-bottom: 20px;
+}
+
+a.webstudio-link-2 {
+  text-decoration: none;
+  display: inline-block;
 }
 
 .footer-bg {
@@ -567,12 +613,12 @@ a.webstudio-link-2 {
   line-height: 1.14;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  color: #ffffff;
+  color: var(--main-white);
   padding-bottom: 20px;
 }
 
 .footer-icon {
-  fill: #fff;
+  fill: var(--main-white);
 }
 
 .footer-icon-list {
@@ -596,7 +642,7 @@ a.webstudio-link-2 {
 
 .footer-social-icons-likns:hover,
 .footer-socjal-icons-links:focus {
-  background: #2196f3;
+  background: var(--main-blue);
 }
 
 .footer-line-menu-list {
@@ -622,7 +668,7 @@ a.webstudio-link-2 {
 
 .footer-bg-location:hover,
 .footer-bg-location:hover {
-  color: #2196f3;
+  color: var(--main-blue);
 }
 
 .footer-link {
@@ -637,6 +683,7 @@ a.webstudio-link-2 {
 .footer-link:focus {
   color: var(--main-blue);
 }
+/* ======= END FOOTER ======= */
 
 /* ======= BACKDROP ======= */
 
@@ -645,23 +692,24 @@ a.webstudio-link-2 {
   right: 0px;
   left: 0px;
   top: 0px;
-  width: 1600px;
-  height: 1024px;
+  width: 100%;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
   transition-property: visibility, opacity, transform;
   transition-duration: 2s;
   transform: translateX(-50) translateY(-50) scale(1) rotate(720deg)
     skew(0deg, 0deg);
   margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .modal {
   position: absolute;
   width: 528px;
   height: 581px;
-  left: 536px;
-  top: 221px;
-  background: #ffffff;
+  background: var(--main-white);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
@@ -673,7 +721,7 @@ a.webstudio-link-2 {
   right: 8px;
   width: 30px;
   height: 30px;
-  background-color: #fff;
+  background-color: var(--main-white);
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
   cursor: pointer;
