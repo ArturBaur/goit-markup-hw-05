@@ -529,9 +529,15 @@ a.webstudio-link {
   transition: transform 250ms ease-in-out;
 }
 
+.projects-card:hover .projects-card-overlay {
+  transform: translatex(0);
+}
+
+/*
 .projects-card-box:hover .projects-card-overlay {
   transform: translatex(0);
 }
+*/
 
 .projects-card-overlay p {
   font-family: "Roboto";
